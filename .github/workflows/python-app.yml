@@ -1,4 +1,4 @@
-name: GwSite
+name: Python application
 
 on:
   push:
@@ -11,21 +11,42 @@ permissions:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
-    - name: Set up Python 3.12
+
+    - name: Set up Python 3.10
       uses: actions/setup-python@v3
       with:
-        python-version: "3.12"
+        python-version: "3.10"
+
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install flask
-        pip install markdown
+        pip install flake8 pytest flask
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Start App
+
+    - name: Lint with flake8
       run: |
-        python start.py
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+
+    - name: Test with pytest
+      run: |
+        pytest tests/
+      env:
+        FLASK_ENV: test
+
+    - name: Run Flask app and generate Markdown
+      run: |
+        flask run --port 5000 &
+        sleep 5
+        curl -s -o output.md http://localhost:5000/
+        cat output.md
+
+    - name: Upload Markdown file as artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: output-markdown
+        path: output.md
