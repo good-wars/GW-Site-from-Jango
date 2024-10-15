@@ -30,3 +30,9 @@ jobs:
     - name: Run Flask app
       run: |
         python app.py
+
+    - name: Expose Flask app to the internet
+      run: |
+        wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
+        unzip ngrok-stable-linux-amd64.zip
+        ./ngrok http 5000 > ngrok.log &
