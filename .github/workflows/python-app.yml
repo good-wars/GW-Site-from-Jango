@@ -36,3 +36,7 @@ jobs:
         wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
         unzip ngrok-stable-linux-amd64.zip
         ./ngrok http 5000 > ngrok.log &
+
+    - name: Display public URL
+      run: |
+        echo "Your Flask app is available at: $PUBLIC_URL"
