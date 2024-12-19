@@ -1,0 +1,17 @@
+{% extends "main/main.html" %}
+
+{% block theme %}{{theme}}{% endblock %}
+{% block title %}Админ Панель{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='mdCss/md-' + theme + '.css') }}">
+
+<div class="container">
+    <div class="markdown-body">
+        <h2>Админ панель</h2>
+        <form action="" method="POST">
+            <input type="password" name="password">
+            <input type="submit" value="Отправить">
+        </form>
+    </div>
+{% endblock %}

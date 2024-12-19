@@ -8,109 +8,116 @@
   <img alt="common readme" src="common-readme.png">
 </h4>
 
-<p><strong><em>Потребители модулей!</em></strong> Разочарованы тем, что каждый модуль имеет свои собственные дико
-   уникальный формат README? Раздражают модули, в которых отсутствуют важные разделы, такие как
-   <strong>API</strong> или <strong>Примеры</strong>? Застрял, просматривая документацию по API еще до того, как <em>узнал об этом
-   что делает модуль</em>?</p>
-   <p><strong><em>Авторы модулей!</em></strong> Устали придумывать формат файла readme каждый раз, когда вы его пишете? Хотите, чтобы файлы readme были предварительно заполнены именем, описанием и лицензией вашего модуля, и вам не нужно каждый раз беспокоиться о структуре?</p>
-   <hr />
-   <p>Что, если бы был общий формат для удобства производителей и потребителей?</p>
-   <p><em>Общий файл readme</em> для модулей узлов.</p>
-   <p>Это может сэкономить время всем, если придерживаться 4 принципов:</p>
-   <ol>
-   <li><strong>Никакой привязки.</strong> Никаких специальных форматов или инструментов; запустите <code>common-readme</code> один раз для
-   чистой ванильного markdown.</li>
-   <li><strong>Никаких сюрпризов.</strong> Извлеките как можно больше деталей из <code>package.json</code> — например, имя,
-   описание и лицензия. Не тратьте время на настройку.</li>
-   <li><strong>Когнитивная воронка.</strong> Начните с самой общей информации вверху
-   (Имя, Описание, Примеры) и, если читатель сохраняет интерес, сузьте
-   до конкретики (API, Установка). Это позволяет читателям
-   "замкнуть" и продолжить поиск нужного модуля в другом месте, не тратя время на ненужные детали.</li>
-   <li><strong>Последовательность.</strong> Ваш мозг может сканировать документ гораздо быстрее, когда он может
-   предвидеть его структуру.</li>
-   </ol>
-   <h2 id="common_format">Общий формат</h2>
-   <p>common-readme работает по принципу <em>когнитивной воронки</em>.</p>
-   <blockquote>
-   <p>В идеале тот, кто немного знаком с вашим модулем, должен иметь возможность
-   освежить свою память, не нажимая "страница вниз". По мере того, как ваш читатель продолжает читать документ, он должен получать все больше и больше знаний. -- <code>perlmodstyle</code></p>
-   </blockquote>
-   <p>Вот несколько файлов README, созданных с помощью common-readme:</p>
-   <ul>
-   <li><a href="https://github.com/noffle/collide-2d-aabb-aabb"><code>collide-2d-aabb-aabb</code></a></li>
-   <li><a href="https://github.com/noffle/goertzel"><code>goertzel</code></a></li>
-   <li><a href="https://github.com/noffle/twitter-kv"><code>twitter-kv</code></a></li>
-   </ul>
-   <p><em>(<a href="https://github.com/noffle/common-readme/pulls">Отправьте запрос на извлечение</a> и добавьте
-   ваш здесь!)</em></p>
-   <h2 id="usage">Использование</h2>
-   <p>Установив <a href="https://npmjs.org/">npm</a>, запустите</p>
-   <pre><code>$ npm install -g common-readme
-   </code></pre>
-   <p><code>common-readme</code> — это программа командной строки. Вы запускаете ее, когда запускаете новый
-   модуль, в котором настроен <code>package.json</code>.</p>
-   <p>При запуске создается совершенно новый README, который записывается на ваш терминал. Вы можете
-   перенаправить его в <code>README.md</code> и использовать его в качестве основы для вашего нового модуля.</p>
-   <pre><code>$ common-readme &gt; README.md
-   </code></pre>
-   <p>Этот совершенно новый файл readme будет автоматически заполнен значениями из
-   <code>package.json</code>, такими как <code>name</code>, <code>description</code> и <code>license</code>. Для всего остального (использование, API и т. д.) будут созданы разделы-заглушки, готовые для заполнения.</p>
-   <h2 id="why_">Почему?</h2>
-   <p>Это не безумная новая идея. Другие экосистемы, такие как <a href="http://perldoc.perl.org/perlmodstyle.html">Perl's
-   CPAN</a>, уже много лет пользуются общим форматом readme. Более того:</p>
-   <ol>
-   <li>
-   <p>Сообщество Node поддерживается нами, людьми, и модулями, которыми мы делимся. Это наша
-   документация, которая связывает нас вместе. Наш README — это первое, что видят
-   разработчики, и он должен быть максимально эффективным для передачи
-   его цели и функции.</p>
-   </li>
-   <li>
-   <p>Много мудрости можно почерпнуть у многих разработчиков, которые написали
-   много-много модулей. Общий readme направлен на то, чтобы переработать этот опыт в
-   общий формат, который принесет пользу всем нам; особенно новым разработчикам!</p>
-   </li>
-   <li>
-   <p>Написание одного и того же шаблона — пустая трата времени каждого автора — мы могли бы также сгенерировать общие части и позволить автору сосредоточиться на содержании.</p>
-   </li>
-   <li>
-   <p>Просмотр модулей на npm является частью обычного
-   цикла разработки каждого разработчика узлов. Последовательный формат позволяет мозгу сосредоточиться на содержании, а не на структуре.</p>
-   </li>
-   </ol>
-   <h2 id="the_art_of_readme">Искусство README</h2>
-   <p>Чтобы узнать еще больше информации, мудрости и идей, ознакомьтесь со статьей, которая
-   вдохновила на common-readme:</p>
-   <ul>
-   <li><a href="https://github.com/noffle/art-of-readme"><em>Искусство README</em></a>.</li>
-   </ul>
-   <h2 id="install">Установить</h2>
-   <p>Установив <a href="https://npmjs.org/">npm</a>, запустите</p>
-   <p><code>shell
-   npm install -g common-readme</code></p>
-   <p>Теперь вы можете выполнить команду <code>common-readme</code>.</p>
-   <h2 id="acknowledgments">Благодарности</h2>
-   <p>Стандартный формат readme для сообщества Node — не новая идея. Вдохновение
-   пришло из многих обсуждений и нереализованных усилий в сообществе:</p>
-   <ul>
-   <li><a href="https://github.com/feross/standard/issues/141">https://github.com/feross/standard/issues/141</a></li>
-   <li><a href="https://github.com/RichardLitt/readme-standard">richardlitt/standard-readme</a></li>
-   <li><a href="https://github.com/zcei/standard-readme">zwei/standard-readme</a></li>
+<p><strong><em>Module consumers!</em></strong> Frustrated by each module having its own wildly
+unique README format? Annoyed by modules that omit critical sections like
+<strong>API</strong> or <strong>Examples</strong>? Stuck scrolling through API docs before you <em>even know
+what the module does</em>?</p>
+<p><strong><em>Module authors!</em></strong> Tired of making up your readme format every time you
+write it? Do you just want consistent readmes pre-populated with your module's
+name, description and license without worrying about the structure every time?</p>
+<hr />
+<p>What if there was a common format for the benefit of producers and consumers?</p>
+<p>A <em>common readme</em> for node modules.</p>
+<p>This can save everybody time by adhering to 4 principles:</p>
+<ol>
+<li><strong>No lock in.</strong> No special formats or tooling; run <code>common-readme</code> once for
+   pure vanilla markdown.</li>
+<li><strong>No surprises.</strong> Pull as many details out of <code>package.json</code> -- like name,
+   description, and license -- as possible. No time wasted on configuration.</li>
+<li><strong>Cognitive funnelling.</strong> Start with the most general information at the top
+   (Name, Description, Examples) and if the reader maintains interest, narrow
+   down to specifics (API, Installation). This makes it easy for readers to
+   "short circuit" and continue the hunt for the right module elsewhere without
+   wasting time delving into unnecessary details.</li>
+<li><strong>Consistency.</strong> Your brain can scan a document much faster when it can
+   anticipate its structure.</li>
+</ol>
+<h2 id="common_format">Common format</h2>
+<p>common-readme operates on the principle of <em>cognitive funneling</em>.</p>
+<blockquote>
+<p>Ideally, someone who's slightly familiar with your module should be able to
+refresh their memory without hitting "page down".  As your reader continues
+through the document, they should receive a progressively greater amount of
+knowledge. -- <code>perlmodstyle</code></p>
+</blockquote>
+<p>Here are some READMEs generated using common-readme:</p>
+<ul>
+<li><a href="https://github.com/noffle/collide-2d-aabb-aabb"><code>collide-2d-aabb-aabb</code></a></li>
+<li><a href="https://github.com/noffle/goertzel"><code>goertzel</code></a></li>
+<li><a href="https://github.com/noffle/twitter-kv"><code>twitter-kv</code></a></li>
 </ul>
-<p>Это, в дополнение к моему собственному опыту оценки сотен модулей узлов и
-их README.</p>
-<p>Я был частично вдохновлен дерзостью медоедов-безразличных усилий
+<p><em>(<a href="https://github.com/noffle/common-readme/pulls">Submit a pull request</a> and add
+yours here!)</em></p>
+<h2 id="usage">Usage</h2>
+<p>With <a href="https://npmjs.org/">npm</a> installed, run</p>
+<pre><code>$ npm install -g common-readme
+</code></pre>
+<p><code>common-readme</code> is a command line program. You run it when you've started a new
+module that has a <code>package.json</code> set up.</p>
+<p>When run, a brand new README is generated and written to your terminal. You can
+redirect this to <code>README.md</code> and use it as a basis for your new module.</p>
+<pre><code>$ common-readme &gt; README.md
+</code></pre>
+<p>This brand new readme will be automatically populated with values from
+<code>package.json</code> such as <code>name</code>, <code>description</code>, and <code>license</code>. Stub sections will
+be created for everything else (Usage, API, etc), ready for you to fill in.</p>
+<h2 id="why_">Why?</h2>
+<p>This isn't a crazy new idea. Other ecosystems like <a href="http://perldoc.perl.org/perlmodstyle.html">Perl's
+CPAN</a> have been benefiting from a
+common readme format for years. Furthermore:</p>
+<ol>
+<li>
+<p>The node community is powered by us people and the modules we share. It's our
+   documentation that links us together. Our README is the first thing
+   developers see and it should be maximally effective at communicating its
+   purpose and function.</p>
+</li>
+<li>
+<p>There is much wisdom to be found from the many developers who have written
+   many many modules. Common readme aims to distill that experience into a
+   common format that stands to benefit us all; especially newer developers!</p>
+</li>
+<li>
+<p>Writing the same boilerplate is a waste of every author's time -- we might as
+   well generate the common pieces and let the author focus on the content.</p>
+</li>
+<li>
+<p>Scanning through modules on npm is a part of every node developer's regular
+   development cycle. Having a consistent format lets the brain focus on content
+   instead of structure.</p>
+</li>
+</ol>
+<h2 id="the_art_of_readme">The Art of README</h2>
+<p>For even more background, wisdom, and ideas, take a look at the article that
+inspired common-readme:</p>
+<ul>
+<li><a href="https://github.com/noffle/art-of-readme"><em>Art of README</em></a>.</li>
+</ul>
+<h2 id="install">Install</h2>
+<p>With <a href="https://npmjs.org/">npm</a> installed, run</p>
+<p><code>shell
+npm install -g common-readme</code></p>
+<p>You can now execute the <code>common-readme</code> command.</p>
+<h2 id="acknowledgments">Acknowledgments</h2>
+<p>A standard readme format for the Node community isn't a new idea. Inspiration
+came from many conversations and unrealized efforts in the community:</p>
+<ul>
+<li><a href="https://github.com/feross/standard/issues/141">https://github.com/feross/standard/issues/141</a></li>
+<li><a href="https://github.com/RichardLitt/readme-standard">richardlitt/standard-readme</a></li>
+<li><a href="https://github.com/zcei/standard-readme">zwei/standard-readme</a></li>
+</ul>
+<p>This, in addition to my own experiences evaluating hundreds of node modules and
+their READMEs.</p>
+<p>I was partly inspired by the audacity of the honey-badger-don't-care efforts of
 <a href="https://github.com/feross/standard">standard</a>.</p>
-<p>Я также много занимался археологией Perl — оказывается, монахи
-сообщества Perl уже проделали большую часть тяжелой работы по <a href="http://perldoc.perl.org/perlmodstyle.html">разработке отличных
-README</a> и мудрости вокруг разработки небольших
-модулей более десяти лет назад.</p>
-<p>Спасибо @mafintosh, @andrewosh и @feross за множество долгих бесед о
-readme и Node.</p>
-<h2 id="see_also">См. также</h2>
-<p>README любят <a href="https://www.npmjs.com/package/readme"><code>readme</code></a>!</p>
-<h2 id="license">Лицензия</h2>
+<p>I also did a great deal of Perl archaeology -- it turns out the monks of the
+Perl community already did much of the hard work of <a href="http://perldoc.perl.org/perlmodstyle.html">figuring out great
+READMEs</a> and the wisdom around small
+module development well over a decade ago.</p>
+<p>Thanks to @mafintosh, @andrewosh, and @feross for many long conversations about
+readmes and Node.</p>
+<h2 id="see_also">See Also</h2>
+<p>READMEs love <a href="https://www.npmjs.com/package/readme"><code>readme</code></a>!</p>
+<h2 id="license">License</h2>
 <p>ISC</p>
 {% endblock %}
-      
-      
